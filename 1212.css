@@ -1,17 +1,17 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    font-size: 20px;
 }
 
-/* Cabeçalho */
+
 header {
     background-color: #003366;
     color: white;
@@ -19,11 +19,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 header .logo img {
-    width: 150px;
+    width: 75%;
+    display: block;
+    height: auto;
 }
 
 header nav ul {
@@ -41,39 +43,42 @@ header nav ul li a {
     font-weight: bold;
 }
 
-/* Seção principal */
 main {
-    padding: 20px;
+    padding: 20%;
 }
 
-/* Banner */
-.banner img {
-    width: 100%;
-    height: auto;
-}
-
-/* Notícias */
-.noticias {
+.Introdução {
     margin-top: 20px;
+    
 }
 
-.noticia {
+.Introduçãotxt {
     background-color: #f4f4f4;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 10px;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
 }
 
-.noticia h3 {
+.Introduçãotxt img {
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.Introduçãotxt h3 {
     margin-bottom: 10px;
 }
 
-.noticia a {
+.Introduçãotxt a {
     color: #003366;
     text-decoration: none;
 }
 
-/* Rodapé */
 footer {
     background-color: #003366;
     color: white;
@@ -82,15 +87,4 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-  }
 }
