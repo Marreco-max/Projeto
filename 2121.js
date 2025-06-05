@@ -14,3 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.remove('open');
     });
 });
+
+function exibir(id) {
+  const paineis = document.querySelectorAll('.painel');
+  paineis.forEach(painel => painel.style.display = 'none');
+
+  const selecionado = document.getElementById(id);
+  if (selecionado) {
+    selecionado.style.display = 'block';
+  }
+}
