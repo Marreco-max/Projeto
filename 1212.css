@@ -78,12 +78,34 @@ main {
     text-decoration: none;
 }
 
+.Desenvolvimento {
+    margin-top: 20px;
+}
+
+.Desenvolvimento ul{
+    margin-bottom: 20px;
+}
+
+.Desenvolvimento h3 {
+    margin-top: 20px;
+}
+
+.Desenvolvimento-txt2{
+    padding: 1rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.Desenvolvimento-txt2 p {
+    margin-top: 10px;
+}
+
 footer {
     background-color: #003366;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     width: 100%;
     bottom: 0;
 }
@@ -102,7 +124,6 @@ footer {
     z-index: 1000;
     padding: 20px;
 }
-
 
 #sidebar.open {
     right: 0;
