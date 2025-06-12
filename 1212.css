@@ -16,9 +16,8 @@ header {
     color: white;
     padding: 10px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 20px;
+    align-items: flex-start;
 }
 
 header .logo img {
@@ -27,20 +26,19 @@ header .logo img {
     height: auto;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
+
+nav {
+      background: #06003f;
+      color: #fff;
+      padding: 0.5rem 2rem;
 }
 
-header nav ul li {
-    margin-left: 20px;
+nav a {
+      color: #fff;
+      margin-right: 1rem;
+      text-decoration: none;
 }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
 
 main {
     padding: 20%;
@@ -113,20 +111,20 @@ footer {
 #sidebar {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: -100%;
     width: 350px;
     max-width: 90%;
     height: 100%;
     background-color: #f4f4f4;
     box-shadow: -2px 0 5px rgba(0,0,0,0.5);
     overflow-y: auto;
-    transition: right 0.3s ease;
+    transition: left 0.3s ease;
     z-index: 1000;
     padding: 20px;
 }
 
 #sidebar.open {
-    right: 0;
+    left: 0;
 }
 
 #sidebar .sidebar-content {
