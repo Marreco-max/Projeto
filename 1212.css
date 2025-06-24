@@ -14,7 +14,7 @@ body {
 header {
     background-color: #003366;
     color: white;
-    padding: 0px;
+    padding: 10px;
     display: flex;
     align-items: flex-start;
 }
@@ -40,7 +40,7 @@ nav a {
 
 
 main {
-    padding: 20%;
+    padding: 10%;
 }
 
 .Introdução {
