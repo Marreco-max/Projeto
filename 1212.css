@@ -44,18 +44,18 @@ main {
 }
 
 .Introdução {
-    margin-top: 10px;
+    margin-top: 0px;
     
 }
 
 .Introduçãotxt {
     background-color: #f4f4f4;
-    padding: 20px;
+    padding: 0px;
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
 }
 
 .Introduçãotxt img {
