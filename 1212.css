@@ -181,9 +181,10 @@ footer {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     main {
         padding: 5%;
+        display: block;
     }
 
     header {
