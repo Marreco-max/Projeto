@@ -4,10 +4,9 @@
     box-sizing: border-box;
 }
 
-
 html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -30,20 +29,17 @@ header .logo img {
     height: auto;
 }
 
-
-
 nav {
-      background: #06003f;
-      color: #fff;
-      padding: 0.5rem 2rem;
+    background: #06003f;
+    color: #fff;
+    padding: 0.5rem 2rem;
 }
 
 nav a {
-      color: #fff;
-      margin-right: 1rem;
-      text-decoration: none;
+    color: #fff;
+    margin-right: 1rem;
+    text-decoration: none;
 }
-
 
 main {
     padding: 10%;
@@ -83,7 +79,7 @@ main {
     margin-bottom: 20px;
 }
 
-.Desenvolvimento ul{
+.Desenvolvimento ul {
     margin-bottom: 20px;
     margin-left: 15px;
 }
@@ -92,7 +88,7 @@ main {
     margin-top: 20px;
 }
 
-.Desenvolvimento-txt2{
+.Desenvolvimento-txt2 {
     padding: 1rem;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -108,22 +104,19 @@ main {
     margin-bottom: 20px;
 }
 
-.id {
+.id, .id1, .id2 {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-}
-
-.id1 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .esboço {
     margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
+
 .Resultado {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -173,7 +166,6 @@ footer {
     border-radius: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: block;
 }
 
 #closeSidebar {
@@ -187,28 +179,14 @@ footer {
 
 @media (max-width: 768px) {
     main {
-        padding: 5%;
+        padding: 10px;
     }
 
-    .id{
+    .id,
+    .id1,
+    .id2 {
         display: block;
-        height: auto;
     }
-
-    .id1{
-        display: block;
-        height: auto;
-    }
-
-    .Introduçãotxt img {
-        height: auto;
-    }
-
-    img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  }
 
     header {
         flex-direction: column;
