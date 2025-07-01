@@ -186,10 +186,21 @@ footer {
 
     .id{
         display: block;
+        height: auto;
     }
 
     .id1{
         display: block;
+        height: auto;
+    }
+
+    .Introduçãotxt img {
+        height: auto;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
     }
     
     header {
