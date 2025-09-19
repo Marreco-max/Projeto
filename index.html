@@ -1,48 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Academus ICA</title>
-    <link rel="stylesheet" href="1212.css">
+  <meta charset="UTF-8">
+  <title>Login - Academus ICA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #003366;
+      display: flex;
+      height: 100vh;
+    }
+
+    .left {
+      flex: 1;
+      background: #003366;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .left img {
+      width: 50%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .left h1 {
+      font-size: 2.5em;
+      margin: 10px 0;
+    }
+
+    .left p {
+      font-size: 1.1em;
+      max-width: 300px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .right {
+      flex: 1;
+      background: #003366;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #004466;
+    }
+
+    .login-box label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #00bfa5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background: #009e87;
+    }
+
+    .login-box .govbr {
+      margin-top: 15px;
+      background: #fff;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+
+    .login-box .govbr img {
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .login-box p {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .error {
+      color: red;
+      display: none;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #002233;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-  <div style="background:#fff; padding:30px; margin:100px auto; width:300px; border-radius:8px;">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="username">Usuário:</label>
-      <input type="text" id="username" required><br><br>
-      <label for="password">Senha:</label>
-      <input type="password" id="password" required><br><br>
-      <button type="submit">Entrar</button>
-      <p id="loginError" style="color:red; display:none;">Usuário ou senha inválidos!</p>
-    </form>
+
+  <div class="left">
+    <img src="A1.png" alt="Logo da ICA">
+    <h1>Academus ICA</h1>
+    <p>Um software desenvolvido pela Souza Network para a Instituição de Ciências Avançadas.</p>
   </div>
+
+  <div class="right">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" required>
+        
+        <label for="password">Senha:</label>
+        <input type="password" id="password" required>
+        
+        <p id="loginError" class="error">Usuário ou senha inválidos!</p>
+        
+        <button type="submit">Acessar</button>
+      </form>
+
+      <button class="govbr">
+        <img src="google.png" alt="google"> Entrar com Google
+      </button>
+
+      <p>Esqueceu a senha?<br>
+        <a href="#">Recuperação de Senha</a>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Instituição de Ciências Avançadas - ICA | Desenvolvido pela Souza Network.
+  </footer>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        const usuarios = [
-            { usuario: 'admin', senha: '1234' },
-            { usuario: '20250122', senha: '5678' },
-            { usuario: '20250133', senha: '9101' }
-        ];
+      const loginForm = document.getElementById('loginForm');
+      if (loginForm) {
+          const usuarios = [
+              { usuario: 'admin', senha: '1234' },
+              { usuario: '20250122', senha: '5678' },
+              { usuario: '20250133', senha: '9101' }
+          ];
 
-        loginForm.onsubmit = function(e) {
-            e.preventDefault();
-            var user = document.getElementById('username').value;
-            var pass = document.getElementById('password').value;
+          loginForm.onsubmit = function(e) {
+              e.preventDefault();
+              var user = document.getElementById('username').value;
+              var pass = document.getElementById('password').value;
 
-            const valido = usuarios.some(u => u.usuario === user && u.senha === pass);
+              const valido = usuarios.some(u => u.usuario === user && u.senha === pass);
 
-            if(valido) {
-            
-                window.location.href = "home.html";
-            } else {
-                document.getElementById('loginError').style.display = 'block';
-            }
-        };
-    }
-});
+              if(valido) {
+                  window.location.href = "home.html";
+              } else {
+                  document.getElementById('loginError').style.display = 'block';
+              }
+          };
+      }
+    });
   </script>
 </body>
 </html>
