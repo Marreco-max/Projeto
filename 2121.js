@@ -128,3 +128,11 @@ function createCalendar(year, month) {
         };
     }
 }); 
+
+
+function mostrarEspera() {
+    document.querySelectorAll('.content').forEach(function(div) {
+        div.style.display = 'none';
+    });
+    document.getElementById('espera').style.display = 'block';
+}
