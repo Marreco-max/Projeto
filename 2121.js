@@ -43,21 +43,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    // Helper: show a section. If it's 'inicio', show container but
+    // hide its children except the .caixas which will be display:flex
+    function showSection(target) {
+        sections.forEach(sec => sec.style.display = 'none');
+        const el = document.getElementById(target);
+        if (!el) return;
+
+        if (target === 'inicio') {
+            // show the container
+            el.style.display = 'block';
+            // for each child of #inicio: show .caixas as flex, also show H1 and P; hide others
+            Array.from(el.children).forEach(child => {
+                const isCaixas = child.classList && child.classList.contains('caixas');
+                const isHeading = child.tagName === 'H1' || child.tagName === 'P';
+                if (isCaixas) {
+                    child.style.display = 'flex';
+                } else if (isHeading) {
+                    // keep headings/paragraphs visible using default block display
+                    child.style.display = '';
+                } else {
+                    child.style.display = 'none';
+                }
+            });
+        } else {
+            // non-inicio sections: show normally
+            el.style.display = 'block';
+            // ensure #inicio and its caixas are hidden
+            const inicio = document.getElementById('inicio');
+            if (inicio) {
+                inicio.style.display = 'none';
+                const caixas = inicio.querySelector('.caixas');
+                if (caixas) caixas.style.display = 'none';
+                // reset other children of inicio to default (no display inline style)
+                Array.from(inicio.children).forEach(child => {
+                    if (!(child.classList && child.classList.contains('caixas'))) {
+                        child.style.display = '';
+                    }
+                });
+            }
+        }
+    }
+
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('data-target');
-
-            sections.forEach(sec => sec.style.display = 'none');
-            document.getElementById(target).style.display = 'block'; 
-
+            showSection(target);
             sidebar.classList.remove('open');
         });
     });
 
-
+    // initial state: hide all sections then show inicio with only .caixas visible
     sections.forEach(sec => sec.style.display = 'none');
-    document.getElementById('inicio').style.display = 'block';
+    showSection('inicio');
 });
 
 function createCalendar(year, month) {
