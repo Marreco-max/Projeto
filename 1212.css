@@ -42,7 +42,7 @@ header img {
 
 header h1 {
     margin: 0;
-    font-size: 1.8em;
+    font-size: 3.0em;
     font-weight: bold;
     text-align: center;
     flex: 1;
@@ -142,6 +142,7 @@ color: white;
 text-decoration: none;
 display: block;
 margin: 10px 0;
+font-size: 20px;
 }
 
 
@@ -176,7 +177,44 @@ cursor: pointer;
 padding: 10px;
 }
 
+#inicio {
+margin: 20px auto;
+max-width: 50%;
+background-color: #f4f4f4;
+padding: 20px;
+}
+
+.caixas {
+display: flex;
+}
+
+.caixas > div {
+margin: 10px 20px 15px 5px;
+}
+
 #calendar {
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+
+}
+
+.eventos {
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.noticias {
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.avisos {
 background: white;
 padding: 20px;
 border-radius: 10px;
