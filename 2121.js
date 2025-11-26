@@ -175,3 +175,12 @@ function mostrarEspera() {
     });
     document.getElementById('espera').style.display = 'block';
 }
+
+ const input = document.getElementById("fileInput");
+    const fileName = document.getElementById("fileName");
+
+    input.addEventListener("change", () => {
+      fileName.textContent = input.files.length > 0
+        ? "Arquivo selecionado: " + input.files[0].name
+        : "";
+    });

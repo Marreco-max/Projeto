@@ -171,27 +171,27 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loginForm = document.getElementById('loginForm');
-      if (loginForm) {
-          const usuarios = [
-              { usuario: 'admin', senha: '1234' },
-              { usuario: '20250122', senha: '5678' },
-              { usuario: '20250133', senha: '9101' }
-          ];
+      if (!loginForm) return;
 
-          loginForm.onsubmit = function(e) {
-              e.preventDefault();
-              var user = document.getElementById('username').value;
-              var pass = document.getElementById('password').value;
+      const usuarios = [
+          { usuario: 'estud', senha: '1234', pagina: 'home.html' },
+          { usuario: 'prof', senha: '1234', pagina: 'prof.html' },
+          { usuario: 'admin', senha: '1234', pagina: 'admin.html' }
+      ];
 
-              const valido = usuarios.some(u => u.usuario === user && u.senha === pass);
+      loginForm.onsubmit = function(e) {
+          e.preventDefault();
+          const user = document.getElementById('username').value.trim();
+          const pass = document.getElementById('password').value;
 
-              if(valido) {
-                  window.location.href = "home.html";
-              } else {
-                  document.getElementById('loginError').style.display = 'block';
-              }
-          };
-      }
+          const match = usuarios.find(u => u.usuario === user && u.senha === pass);
+
+          if (match) {
+              window.location.href = match.pagina;
+          } else {
+              document.getElementById('loginError').style.display = 'block';
+          }
+      };
     });
   </script>
 </body>
