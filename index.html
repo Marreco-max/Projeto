@@ -168,31 +168,10 @@
     &copy; 2025 Instituição de Ciências Avançadas - ICA | Desenvolvido pela Souza Network.
   </footer>
 
+  <script src="2121.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginForm = document.getElementById('loginForm');
-      if (!loginForm) return;
-
-      const usuarios = [
-          { usuario: 'estud', senha: '1234', pagina: 'home.html' },
-          { usuario: 'prof', senha: '1234', pagina: 'prof.html' },
-          { usuario: 'admin', senha: '1234', pagina: 'admin.html' }
-      ];
-
-      loginForm.onsubmit = function(e) {
-          e.preventDefault();
-          const user = document.getElementById('username').value.trim();
-          const pass = document.getElementById('password').value;
-
-          const match = usuarios.find(u => u.usuario === user && u.senha === pass);
-
-          if (match) {
-              window.location.href = match.pagina;
-          } else {
-              document.getElementById('loginError').style.display = 'block';
-          }
-      };
-    });
+    // Inicializar a autenticação na página de login
+    document.addEventListener('DOMContentLoaded', initAuthentication);
   </script>
 </body>
 </html>

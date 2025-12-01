@@ -1,19 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Página carregada com sucesso!');
+// Sistema de autenticação e redirecionamento
+function initAuthentication() {
+    const loginForm = document.getElementById('loginForm');
+    if (!loginForm) return;
 
-    const openBtn = document.getElementById('openSidebar');
-    const closeBtn = document.getElementById('closeSidebar');
-    const sidebar = document.getElementById('sidebar');
+    const usuarios = [
+        { usuario: 'estud', senha: '1234', tipo: 'estudante', pagina: 'home.html' },
+        { usuario: 'prof', senha: '1234', tipo: 'professor', pagina: 'prof.html' },
+        { usuario: 'admin', senha: '1234', tipo: 'administrador', pagina: 'admin.html' }
+    ];
 
-    openBtn.addEventListener('click', (e) => {
+    loginForm.onsubmit = function(e) {
         e.preventDefault();
-        sidebar.classList.add('open');
-    });
+        const user = document.getElementById('username').value.trim();
+        const pass = document.getElementById('password').value;
 
-    closeBtn.addEventListener('click', () => {
-        sidebar.classList.remove('open');
-    });
-});
+        const usuarioValido = usuarios.find(u => u.usuario === user && u.senha === pass);
+
+        if (usuarioValido) {
+            // Armazenar dados do usuário no localStorage
+            localStorage.setItem('usuarioLogado', JSON.stringify({
+                usuario: usuarioValido.usuario,
+                tipo: usuarioValido.tipo,
+                dataLogin: new Date().toISOString()
+            }));
+            
+            // Redirecionar para a página específica
+            window.location.href = usuarioValido.pagina;
+        } else {
+            document.getElementById('loginError').style.display = 'block';
+            document.getElementById('password').value = '';
+        }
+    };
+}
 
 function exibir(id) {
   const paineis = document.querySelectorAll('.painel');
@@ -142,31 +160,8 @@ function createCalendar(year, month) {
     let today = new Date();
     createCalendar(today.getFullYear(), today.getMonth());
 
-   document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        const usuarios = [
-            { usuario: 'admin', senha: '1234' },
-            { usuario: '20250122', senha: '5678' },
-            { usuario: '20250133', senha: '9101' }
-        ];
-
-        loginForm.onsubmit = function(e) {
-            e.preventDefault();
-            var user = document.getElementById('username').value;
-            var pass = document.getElementById('password').value;
-
-            const valido = usuarios.some(u => u.usuario === user && u.senha === pass);
-
-            if(valido) {
-                document.getElementById('loginModal').style.display = 'none';
-                document.getElementById('loginError').style.display = 'none';
-            } else {
-                document.getElementById('loginError').style.display = 'block';
-            }
-        };
-    }
-}); 
+    // Inicializar autenticação se estiver na página de login
+    initAuthentication();
 
 
 function mostrarEspera() {
@@ -174,6 +169,13 @@ function mostrarEspera() {
         div.style.display = 'none';
     });
     document.getElementById('espera').style.display = 'block';
+}
+
+function mostrarEspera1() {
+    document.querySelectorAll('.content').forEach(function(div) {
+        div.style.display = 'none';
+    });
+    document.getElementById('espera1').style.display = 'block';
 }
 
  const input = document.getElementById("fileInput");
