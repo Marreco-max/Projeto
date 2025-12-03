@@ -107,6 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('data-target');
+
+            // se o link tiver um submenu (ul imediatamente após), apenas alterna a exibição do submenu
+            const next = link.nextElementSibling;
+            if (next && next.tagName === 'UL') {
+                next.style.display = (next.style.display === 'block') ? 'none' : 'block';
+                // também mostra a seção pai (ex: 'cursos') para dar contexto
+                if (target) showSection(target);
+                return; // não fechar a barra lateral para permitir escolha da sub-opção
+            }
+
+            // comportamento padrão para links sem submenu
             showSection(target);
             sidebar.classList.remove('open');
         });
@@ -164,18 +175,18 @@ function createCalendar(year, month) {
     initAuthentication();
 
 
-function mostrarEspera() {
+function mostrarConteudo() {
     document.querySelectorAll('.content').forEach(function(div) {
         div.style.display = 'none';
     });
-    document.getElementById('espera').style.display = 'block';
+    document.getElementById('Conteudo').style.display = 'block';
 }
 
-function mostrarEspera1() {
+function mostrarConteudo1() {
     document.querySelectorAll('.content').forEach(function(div) {
         div.style.display = 'none';
     });
-    document.getElementById('espera1').style.display = 'block';
+    document.getElementById('Conteudo1').style.display = 'block';
 }
 
  const input = document.getElementById("fileInput");
